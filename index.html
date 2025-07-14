@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gerenciamento de Alunos</title>
+
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container-projeto">
+
+    <header class="hed">
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contato</a></li>
+        <li><a href="#">Sobre</a></li>
+    </ul>
+</nav>
+
+    </header>
+
+    <main>
+<div><img src="images/pesos.png.png" class="peso-animado" /></div>
+
+
+<div class="saldacao">
+<h2>Olá</h2>
+<h1>Bem-vindo(a) á Fit Academy</h1>
+ <p>Conheça á Fit Academy Sistem, 
+    um sistema voltado para academias.
+     onde você pode cadastrar seus alunos,
+      ver os aluno cadastrados, atualizar e deletalos, o sistema perfeito para você.</p>
+
+</div>
+
+     
+    </main>
+
+     <div class="text-cadastro"><h2>FAÇA O CADASTRO DOS SEUS ALUNOS.</h2></div>
+
+
+  <div class="container">
+
+    <!-- Cadastro -->
+    <div class="form-section">
+      <h2>Cadastro</h2>
+      <form id="formCadastro">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" required>
+
+        <label for="sexo">Sexo:</label>
+        <input type="text" id="sexo" required>
+
+        <label for="dataNascimento">Data de Nascimento:</label>
+        <input type="date" id="dataNascimento" required>
+
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+
+    <!-- Buscar -->
+    <div class="form-section">
+      <h2>Buscar</h2>
+      <form id="formBuscar">
+        <label for="idBusca">ID (opcional):</label>
+        <input type="number" id="idBusca">
+
+        <button type="submit" id="busca-submit">Buscar</button>
+
+        <div id="resultadoBusca">
+          <ol id="listaResultados"></ol>
+        </div>
+      </form>
+    </div>
+
+    <!-- Atualizar -->
+    <div class="form-section">
+      <h2>Atualizar</h2>
+      <form id="formAtualizar">
+        <label for="idAtualizar">ID do Aluno:</label>
+        <input type="number" id="idAtualizar" required>
+
+        <label for="nomeAtualizar">Nome:</label>
+        <input type="text" id="nomeAtualizar" required>
+
+        <label for="emailAtualizar">E-mail:</label>
+        <input type="email" id="emailAtualizar" required>
+
+        <label for="cpfAtualizar">CPF:</label>
+        <input type="text" id="cpfAtualizar" required>
+
+        <label for="telefoneAtualizar">Telefone:</label>
+        <input type="text" id="telefoneAtualizar" required>
+
+        <label for="sexoAtualizar">Sexo:</label>
+        <input type="text" id="sexoAtualizar" required>
+
+        <label for="dataAtualizar">Data de Nascimento:</label>
+        <input type="date" id="dataAtualizar" required>
+
+        <button type="submit">Atualizar</button>
+      </form>
+    </div>
+
+    <!-- Deletar -->
+    <div class="form-section">
+      <h2>Deletar</h2>
+      <form id="formDeletar">
+        <label for="idDeletar">ID do Aluno:</label>
+        <input type="number" id="idDeletar" required>
+
+        <button type="submit">Deletar</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

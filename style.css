@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container-projeto{
+  width: 100%;
+  height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+ overflow-x: hidden;
+  
+}
+
+.hed{
+  width: 100%;
+}
+header nav {
+  background-color: #05050573;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 80px 10px rgb(0, 0, 0);
+}
+
+header nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 200px;
+
+}
+
+header nav li a {
+  color: #ebe7e7;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+}
+
+header nav li a:hover {
+  color: white;
+  transform: scale(1.1);
+}
+main{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  
+  margin-top: 50px;
+}
+.saldacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+gap: 10px;
+}
+
+.saldacao h1 {
+  color: white;
+  font-size: 40px;
+  text-shadow: 2px 2px 25px #fff;
+}
+
+.saldacao h2{
+  color: rgb(252, 206, 0);
+  margin-right: 30px;
+  font-size: 30px;
+}
+.saldacao p{
+    color: rgb(252, 206, 0);
+    max-width:80%;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+
+.text-cadastro{
+  margin-top: 50px;
+  color: rgb(252, 206, 0);
+    text-shadow: 2px 2px 25px rgb(252, 206, 0);
+}
+
+
+
+.container {
+  position: relative;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  padding-top: 30vh;
+  margin-top: 100px;
+}
+
+.peso-animado {
+  width: 300px;
+  animation: girar 2s infinite alternate ease-in-out;
+}
+
+@keyframes girar {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(15deg);
+  }
+
+  100% {
+    transform: rotate(-15deg);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #272424;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+    box-shadow: 0px 0px 80px 10px rgb(0, 0, 0);
+}
+
+.form-section {
+  flex: 1;
+ 
+  background-color: rgba(252, 185, 0, 0.911);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+}
+
+.form-section h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-section label {
+  display: block;
+  margin: 6px 0 2px;
+}
+
+.form-section input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-section button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-section button:hover {
+  background-color: #0056b3;
+}
+
+#resultadoBusca {
+  margin-top: 10px;
+  background: #e9ecef;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+#efeito {
+  width: 100%;
+}
