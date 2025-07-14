@@ -4,18 +4,26 @@ const buscaButon = document.getElementById("busca-submit")
 buscaButon.addEventListener("click",(click)=>{
 click.preventDefault();
 
+ const ol = document.getElementById("listaResultados");
 
+fetch('http://localhost:8080/academia')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao buscar os dados da API');
+        }
+        return response.json();
+    })
+    .then(dados => {
+        ol.innerHTML = ""; // limpa a lista antes
+        dados.forEach(aluno => {
+            const li = document.createElement("li");
+            li.textContent = `ID: ${aluno.id}, Nome: ${aluno.nome}, Idade: ${aluno.datanascimento} `;
+            ol.appendChild(li);
+        });
+    })
+    .catch(erro => {
+        console.error("Erro na requisição:", erro);
+        alert("Erro na requisição: " + erro.message);
+    });
 
-fetch('http://localhots:8080/academia')
-.then(response=>{
-    if(!response.ok){
-        throw new Error('erro ao buscar os dados da API')
-    }
-    return response.json();
-})
-.then(dados =>{
-    alert("Alunos: ", dados)
-}).catch(erro =>{
-    alert("erro na requisição")
-})
-})
+});
