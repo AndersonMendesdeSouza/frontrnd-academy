@@ -185,10 +185,7 @@ body {
   border-radius: 5px;
 }
 
-ol {
-  padding-left: 20px;
-}
-
+ 
 #efeito {
   width: 100%;
 }
@@ -197,6 +194,8 @@ ol {
   display: flex;
   gap: 10px;
   flex-direction: column;
+  overflow-y: auto;
+  max-height: 375px;
 }
 #listaResultados li{
    border-radius: 10px;

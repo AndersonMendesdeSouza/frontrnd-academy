@@ -5,8 +5,11 @@ buscaButon.addEventListener("click",(click)=>{
 click.preventDefault();
 
  const ol = document.getElementById("listaResultados");
+ const busca = document.getElementById("idBusca");
 
-fetch('http://localhost:8080/academia')
+const url = "http://localhost:8080/academia"+ busca.value;
+
+fetch(url)
     .then(response => {
         if (!response.ok) {
             throw new Error('Erro ao buscar os dados da API');
