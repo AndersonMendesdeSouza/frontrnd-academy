@@ -6,40 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gerenciamento de Alunos</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-
   <div class="container-projeto">
-
-    <header class="hed">
+ <header class="hed">
       <nav>
+<div class="logo">
+  <h1>FIT</h1>
+  <h3>Academy</h3>
+</div>
+<div class="search-box">
+  <input type="text" placeholder="Buscar aluno..." />
+  <i class="fas fa-search"></i>
+</div>
+     <div>
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="#Home">Home</a></li>
+          <li><a href="#cadastrados">Casdastrar</a></li>
           <li><a href="#">Contato</a></li>
-          <li><a href="#">Sobre</a></li>
         </ul>
+        </div>
       </nav>
-
-    </header>
-
-    <main>
-      <div><img src="images/pesos.png.png" class="peso-animado" /></div>
-
-
-      <div class="saldacao">
-        <h2>Olá</h2>
+    </header >
+<main class="Bem-vindo">
+      <div class="saldacao" id="Home">
+       
         <h1>Bem-vindo(a) á Fit Academy</h1>
-        <p>Conheça á Fit Academy Sistem,
-          um sistema voltado para academias.
-          onde você pode cadastrar seus alunos,
-          ver os aluno cadastrados, atualizar e deletalos, o sistema perfeito para você.</p>
-
-      </div>
-
-
+      
+      </div> 
+      
+<div>
+  <section class="feature-icons">
+  <div class="feature">
+    <i class="fas fa-dumbbell"></i>
+    <p>Treinos organizados</p>
+  </div>
+  <div class="feature">
+    <i class="fas fa-running"></i>
+    <p>Acompanhamento fácil</p>
+  </div>
+  <div class="feature">
+    <i class="fas fa-users"></i>
+    <p>Gestão de alunos</p>
+  </div>
+</section>
+</div>
+<div> <a href="#cadastrados"><Button>FAÇA O CADASTRO DOS SEUS ALUNOS</Button></a></div>
     </main>
 
     <div class="text-cadastro">
@@ -47,7 +63,7 @@
     </div>
 
 
-    <div class="container">
+    <div class="container" id="cadastrados">
 
       <!-- Cadastro -->
       <div class="form-section">
@@ -92,6 +108,7 @@
           <button type="submit" id="busca-submit">Buscar</button>
 
           <div id="resultadoBusca">
+             <h3 id="result">RESULTADOS</h3>
             <ul id="listaResultados"> </ul>
           </div>
         </form>
