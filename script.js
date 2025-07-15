@@ -8,9 +8,9 @@ buscaButton.addEventListener("click", (event) => {
   let url;
 
   if (busca.value === null || busca.value.trim() === "") {
-    url = "http://localhost:8080/academia"; // busca todos
+    url = "https://fitacademy-production.up.railway.app/academia"; // busca todos
   } else {
-    url = "http://localhost:8080/academia/" + busca.value; // busca por ID
+    url = "https://fitacademy-production.up.railway.app/academia/" + busca.value; // busca por ID
   }
 
   fetch(url)
@@ -69,7 +69,7 @@ formCadastro.addEventListener("submit", (event) => {
     datanascimento: dataNascimento // cuidado com o nome que o backend espera
   };
 
-  const urlPost = "http://localhost:8080/academia";
+  const urlPost = "https://fitacademy-production.up.railway.app/academia";
 
   fetch(urlPost, {
     method: "POST",
@@ -144,7 +144,7 @@ if(dataNascimento === ""){
     datanascimento: dataNascimento,
   };
 
- fetch('http://localhost:8080/academia', {
+ fetch('https://fitacademy-production.up.railway.app/academia', {
   method: "PUT",
   headers: {
     "Content-Type": "application/json"
@@ -174,7 +174,7 @@ if(dataNascimento === ""){
 click.preventDefault();
 const idDelet = document.getElementById("idDeletar").value
 
-const URLdelet = "http://localhost:8080/academia/" + idDelet;
+const URLdelet = "https://fitacademy-production.up.railway.app/academia/" + idDelet;
 
  fetch(URLdelet, {
   method: "DELETE"
