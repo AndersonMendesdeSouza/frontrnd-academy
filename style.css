@@ -211,4 +211,89 @@ body {
   border-radius: 5px;
  
 }
+@media (max-width: 768px) {
+  .container-projeto {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  header nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  header nav li a {
+    font-size: 14px;
+  }
+
+  main {
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+
+  .saldacao h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .saldacao h2 {
+    font-size: 22px;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .saldacao p {
+    font-size: 14px;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .peso-animado {
+    width: 200px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    margin-top: 50px;
+  }
+
+  .form-section {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .form-section input,
+  .form-section button,
+  .select {
+    font-size: 14px;
+  }
+
+  #listaResultados {
+    max-height: 250px;
+    padding: 5px;
+  }
+
+  #listaResultados li {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .text-cadastro {
+    margin-top: 30px;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
  
