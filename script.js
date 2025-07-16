@@ -81,7 +81,6 @@ spanerroCPF.textContent = "";
 cpf.value = cpfFormatado;
 }
 
-alert(cpfFormatado)
  
  function formataTelefone(telefone){
   // Remove tudo que não for número
@@ -104,9 +103,6 @@ return
 spanerroTelef.textContent = "";
 telefone.value = telefoneFormatado;
 }
-
-alert(telefoneFormatado)
-
 
  
   const aluno = {
@@ -156,6 +152,7 @@ formAtualizar.addEventListener("submit", (click) => {
   let telefone = document.getElementById("telefoneAtualizar");
   let sexo = document.getElementById("sexo").value;
   let dataNascimento = document.getElementById("dataAtualizar").value;
+
  function formataCPF(cpf){
   // Remove tudo que não for número
     cpf = cpf.replace(/\D/g,"");
@@ -189,7 +186,7 @@ formAtualizar.addEventListener("submit", (click) => {
  
 }
 const telefoneFormatado = formataTelefone(telefone.value)
-alert(telefoneFormatado)
+
 if(id === ""){
   id =null;
 }
