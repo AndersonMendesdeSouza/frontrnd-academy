@@ -47,26 +47,75 @@ buscaButton.addEventListener("click", (event) => {
     });
 });
 
-
 // CADASTRO DE ALUNOS
 const formCadastro = document.getElementById("formCadastro");
 formCadastro.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const nome = document.getElementById("nome").value;
-  const cpf = document.getElementById("cpf").value;
+  const cpf = document.getElementById("cpf");
   const email = document.getElementById("email").value;
-  const telefone = document.getElementById("telefone").value;
+  const telefone = document.getElementById("telefone");
   const sexo = document.getElementById("sexoo").value;
-  const dataNascimento = document.getElementById("dataNascimento").value;
+  const datanascimento = document.getElementById("dataNascimento").value;
+const spanerroCPF = document.getElementById("erroCPF")
+const spanerroTelef = document.getElementById("erroTelefone")
 
+  function formataCPF(cpf){
+  // Remove tudo que não for número
+    cpf = cpf.replace(/\D/g,"");
+// Aplica a máscara se tiver 11 dígitos
+  if (cpf.length === 11) {
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+  }
+  return null;}
+
+  const cpfFormatado = formataCPF(cpf.value)
+
+if(!cpfFormatado){
+spanerroCPF.textContent = "Erro CPF invalido!"
+cpf.focus();
+return
+}else{
+spanerroCPF.textContent = "";
+cpf.value = cpfFormatado;
+}
+
+alert(cpfFormatado)
+ 
+ function formataTelefone(telefone){
+  // Remove tudo que não for número
+    telefone = telefone.replace(/\D/g,"");
+// Aplica a máscara se tiver 11 dígitos
+  if (telefone.length === 11) {
+    return telefone.replace(/(\d{2})(\d{5})(\d{4})/, "$1 $2-$3");
+  }
+  return null;
+ 
+}
+
+const telefoneFormatado = formataTelefone(telefone.value)
+
+if(!telefoneFormatado){
+spanerroTelef.textContent = "Erro Telefone invalido!"
+telefone.focus();
+return
+}else{
+spanerroTelef.textContent = "";
+telefone.value = telefoneFormatado;
+}
+
+alert(telefoneFormatado)
+
+
+ 
   const aluno = {
     nome,
-    cpf,
+    cpfFormatado,
     email,
-    telefone,
+    telefoneFormatado,
     sexo,
-    datanascimento: dataNascimento // cuidado com o nome que o backend espera
+    datanascimento // cuidado com o nome que o backend espera
   };
 
   const urlPost = "https://fitacademy-production.up.railway.app/academia";
@@ -102,12 +151,45 @@ formAtualizar.addEventListener("submit", (click) => {
 
   let id = document.getElementById("idAtualizar").value;
   let nome = document.getElementById("nomeAtualizar").value;
-  let cpf = document.getElementById("cpfAtualizar").value;
+  let cpf = document.getElementById("cpfAtualizar");
   let email = document.getElementById("emailAtualizar").value;
-  let telefone = document.getElementById("telefoneAtualizar").value;
+  let telefone = document.getElementById("telefoneAtualizar");
   let sexo = document.getElementById("sexo").value;
   let dataNascimento = document.getElementById("dataAtualizar").value;
+ function formataCPF(cpf){
+  // Remove tudo que não for número
+    cpf = cpf.replace(/\D/g,"");
+// Aplica a máscara se tiver 11 dígitos
+  if (cpf.length === 11) {
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
 
+  }else if(cpf.length > 0 && cpf.length !== 11 ) {
+    return null;
+
+  }   
+  else if(cpf.length ===0 ) {
+    return "";
+  } 
+  
+ }
+  const cpfFormatado = formataCPF(cpf.value)
+ function formataTelefone(telefone){
+  // Remove tudo que não for número
+    telefone = telefone.replace(/\D/g,"");
+// Aplica a máscara se tiver 11 dígitos
+  if (telefone.length === 11) {
+    return telefone.replace(/(\d{2})(\d{5})(\d{4})/, "$1 $2-$3");
+
+  }else if(telefone.length > 0 && telefone.length !== 11 ) {
+    return null;
+  }   
+  else if(telefone.length === 0 ) {
+    return telefone;
+  }  
+ 
+}
+const telefoneFormatado = formataTelefone(telefone.value)
+alert(telefoneFormatado)
 if(id === ""){
   id =null;
 }
@@ -116,13 +198,13 @@ if(nome === ""){
   nome =null;
 }
 
-if(cpf === ""){
+if(cpf.value === ""){
   cpf =null;
 }
 if(email === ""){
   email =null;
 }
-if(telefone === ""){
+if(telefone.value === ""){
   telefone =null;
 }
 if(sexo === ""){
@@ -137,9 +219,9 @@ if(dataNascimento === ""){
   const alunoPut = {
     id,
     nome,
-    cpf,
+    cpfFormatado,
     email,
-    telefone,
+    telefoneFormatado,
     sexo,
     datanascimento: dataNascimento,
   };
@@ -168,7 +250,7 @@ if(dataNascimento === ""){
   });
 
 });
-
+// DELETAR ALUNOS
  const formDeletar = document.getElementById("formDeletar");
  formDeletar.addEventListener("submit", (click)=>{
 click.preventDefault();
