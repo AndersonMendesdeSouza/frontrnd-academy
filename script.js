@@ -1,4 +1,10 @@
 // BUSCA DE ALUNOS
+ 
+ const botaoLogin = document.getElementById("form-login")
+ botaoLogin.addEventListener("submit", (click)=>{
+  click.preventDefault();
+
+ })
 const buscaButton = document.getElementById("busca-submit");
 buscaButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -195,5 +201,6 @@ const URLdelet = "https://fitacademy-production.up.railway.app/academia/" + idDe
     alert("Erro ao excluir: " + erro.message);
   });
  })
+
 
 
