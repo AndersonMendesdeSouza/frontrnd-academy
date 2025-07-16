@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciamento de Alunos</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <div class="container-projeto">
+ <header class="hed">
+      <nav>
+<div class="logo">
+  <h1>FIT</h1>
+  <h3>Academy</h3>
+</div>
+<div class="search-box">
+  <input type="text" placeholder="Buscar aluno..." />
+  <i class="fas fa-search"></i>
+</div>
+     <div>
+        <ul>
+          <li><a href="buscaraluno.html">Cadastrar</a></li>
+          <li><a href="atualizaraluno.html">Buscar</a></li>
+          <li><a href="deletaraluno.html">Deletar</a></li>
+        </ul>
+        </div>
+</nav>
+             <div class="voltar">
+<a href="academy.html"><button id="btn-voltar">VOLTAR</button></a>
+
+        </div>
+    </header >
+ 
+    <div class="text-cadastro">
+      <h2>FAÇA O CADASTRO DOS SEUS ALUNOS.</h2>
+    </div>
+
+
+    <div class="container" id="cadastrados">
+
+      <!-- Atualizar -->
+      <div class="form-section">
+        <h2>Atualizar</h2>
+        <form id="formAtualizar">
+          <label for="idAtualizar">ID do Aluno:</label>
+          <input type="number" id="idAtualizar" required>
+
+          <label for="nomeAtualizar">Nome:</label>
+          <input type="text" id="nomeAtualizar">
+
+          <label for="emailAtualizar">E-mail:</label>
+          <input type="email" id="emailAtualizar">
+
+          <label for="cpfAtualizar">CPF:</label>
+          <input type="text" id="cpfAtualizar" placeholder="000.000.000-00">
+          <span id="erroCPFAT" style="color: red; font-size: 14px;"></span>
+
+          <label for="telefoneAtualizar">Telefone:</label>
+          <input type="tel" id="telefoneAtualizar" placeholder="99 99999-9999">
+<span id="erroTelefoneAT" style="color: red; font-size: 14px;"></span>
+          <label for="sexoAtualizar">Sexo:</label>
+          <select name="sexo" id="sexo" class="select">
+          
+            <option value="MASCULINO">Masculino</option>
+            <option value="FEMININO">Feminino</option>
+            <option value="PREFIRONAODIZER" selected>Prefiro não Dizer</option>
+          </select>
+
+
+
+          <label for="dataAtualizar">Data de Nascimento:</label>
+          <input type="date" id="dataAtualizar">
+
+          <button type="submit">Atualizar</button>
+        </form>
+      </div>
+ 
+
+    </div>
+    </main>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+
+</html>

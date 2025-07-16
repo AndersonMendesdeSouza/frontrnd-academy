@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+ 
 
 <head>
   <meta charset="UTF-8" />
@@ -23,9 +22,9 @@
 </div>
      <div>
         <ul>
-          <li><a href="./academy.html" target="_self">Home</a></li>
-          <li><a href="#cadastrados">Casdastrar</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="buscaraluno.html">Buscar</a></li>
+          <li><a href="atualizaraluno.html">Atualizar</a></li>
+          <li><a href="deletaraluno.html">Deletar</a></li>
         </ul>
         </div>
       </nav>
@@ -144,4 +143,4 @@
   <script src="../script.js"></script>
 </body>
 
-</html>
+ 

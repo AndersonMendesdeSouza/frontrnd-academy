@@ -398,6 +398,17 @@ border-radius: 15px;
 margin-top: 100px;
 
 }
+#btn-voltar{
+  padding: 10px 35px;
+  border-radius: 7px;
+  border: none;
+  background-color: #f39c12;
+  font-weight: bold;
+  color: white;
+   
+ 
+}
+ 
 /* RESPONSIVO */
 @media (max-width: 768px) {
   .container-projeto {
@@ -565,4 +576,17 @@ margin-top: 100px;
     width: 90%;
     font-size: 14px;
   }
+
+  #btn-voltar{
+  padding: 7px 25px;
+  border-radius: 7px;
+  border: none;
+  background-color: #f39c12;
+  font-weight: bold;
+  color: white;
+   
+ 
+   
+}
+ 
 }
