@@ -4,9 +4,35 @@
  form.addEventListener("submit", (click)=>{
   click.preventDefault();
 
-form.reset();
+const nome = document.getElementById("nomeLogin").value
+const senha = document.getElementById("senhaLogin").value
 
-setTimeout(() => {
-    link.click();
-},0);
+
+
+const usuario = {
+  nome,
+  senha
+}
+
+const URL = "https://fitacademy-production.up.railway.app/academia/postAcessar"
+
+fetch(URL, {
+  method: "POST",
+  headers:{ "Content-Type":"application/json"},
+
+body: JSON.stringify(usuario)})
+
+.then(resposta=>{
+if(!resposta.ok){
+  alert("Nome de usuario ou senha inválidos")
+} else{
+link.click();
+}
+})
+.catch(erro=>{
+  console.error("Erro ao comunicar com o servidor", erro)
+alert("Erro ao fazer login")
+})
+
+form.reset();
  })
