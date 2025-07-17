@@ -83,7 +83,110 @@
     </main>
   </div>
 
-  <script src="../script.js"></script>
+  <script>
+    // CADASTRO DE ALUNOS
+
+    const buscaButton = document.getElementById("botao-cadastro")
+const formCadastro = document.getElementById("formCadastro");
+formCadastro.addEventListener("submit", (event) => {
+  event.preventDefault();
+buscaButton.innerText = "Enviado...";
+
+setTimeout(() => {
+  
+
+  const nome = document.getElementById("nome").value;
+  const cpf = document.getElementById("cpf");
+  const email = document.getElementById("email").value;
+  const telefone = document.getElementById("telefone");
+  const sexo = document.getElementById("sexoo").value;
+  const datanascimento = document.getElementById("dataNascimento").value;
+const spanerroCPF = document.getElementById("erroCPF")
+const spanerroTelef = document.getElementById("erroTelefone")
+
+  function formataCPF(cpf){
+  // Remove tudo que não for número
+    cpf = cpf.replace(/\D/g,"");
+// Aplica a máscara se tiver 11 dígitos
+  if (cpf.length === 11) {
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+  }
+  return null;}
+
+  const cpfFormatado = formataCPF(cpf.value)
+
+if(!cpfFormatado){
+spanerroCPF.textContent = "Erro CPF invalido!"
+cpf.focus();
+return
+}else{
+spanerroCPF.textContent = "";
+cpf.value = cpfFormatado;
+}
+
+ 
+ function formataTelefone(telefone){
+  // Remove tudo que não for número
+    telefone = telefone.replace(/\D/g,"");
+// Aplica a máscara se tiver 11 dígitos
+  if (telefone.length === 11) {
+    return telefone.replace(/(\d{2})(\d{5})(\d{4})/, "$1 $2-$3");
+  }
+  return null;
+ 
+}
+
+const telefoneFormatado = formataTelefone(telefone.value)
+
+if(!telefoneFormatado){
+spanerroTelef.textContent = "Erro Telefone invalido!"
+telefone.focus();
+return
+}else{
+spanerroTelef.textContent = "";
+telefone.value = telefoneFormatado;
+}
+
+ 
+  const aluno = {
+    nome,
+    cpfFormatado,
+    email,
+    telefoneFormatado,
+    sexo,
+    datanascimento // cuidado com o nome que o backend espera
+  };
+
+  const urlPost = "https://fitacademy-production.up.railway.app/academia";
+
+  fetch(urlPost, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(aluno)
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Erro ao enviar os dados do aluno!");
+      }
+      return response.json(); // corrigido: .json() minúsculo
+    })
+    .then(valor => {
+      alert("Aluno cadastrado com sucesso! ID: " + valor.id);
+      formCadastro.reset();
+    })
+    .catch(erro => {
+      console.error("Erro no cadastro:", erro);
+      alert("Erro no cadastro: " + erro.message);
+    });
+   
+})
+.finally(()=>{
+ buscaButton.innerText = "Cadastrar";
+})
+}, 0);
+  </script>
 </body>
 
 </html>

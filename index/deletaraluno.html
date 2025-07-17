@@ -57,7 +57,37 @@
     </main>
   </div>
 
-  <script src="../script.js"></script>
+   <script>  
+// DELETAR ALUNOS
+ const formDeletar = document.getElementById("formDeletar");
+ formDeletar.addEventListener("submit", (click)=>{
+click.preventDefault();
+const idDelet = document.getElementById("idDeletar").value
+
+const URLdelet = "https://fitacademy-production.up.railway.app/academia/" + idDelet;
+
+ fetch(URLdelet, {
+  method: "DELETE"
+})
+  .then(async response => {
+    if (!response.ok) {
+      const errorText = await response.text(); // Pega o erro real do backend
+      throw new Error("Erro ao atualizar os dados do aluno!\n\n" + errorText);
+    
+    }
+  })
+  .then(() => {
+    alert("Aluno Deletado com sucesso! ID: " + idDelet);
+    formDeletar.reset();
+  })
+  .catch(erro => {
+    console.error("Erro ao Excluir aluno:", erro);
+    alert("Erro ao excluir: " + erro.message);
+  });
+ })
+
+
+   </script>
 </body>
 
 </html>

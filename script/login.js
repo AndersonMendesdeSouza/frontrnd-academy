@@ -1,9 +1,19 @@
 
+
+function logando(){  const loading = document.createElement("div")
+loading.innerHTML = "<label>Carregando...</label>"
+loading.classList.add("container-load")
+ 
+
+ const projeto = document.querySelector(".projeto-login")
+projeto.appendChild(loading)
+ }
+
  const form = document.getElementById("form-login")
  const link = document.getElementById("link")
  form.addEventListener("submit", (click)=>{
   click.preventDefault();
-
+  logando();
 const nome = document.getElementById("nomeLogin").value
 const senha = document.getElementById("senhaLogin").value
 
