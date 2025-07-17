@@ -192,12 +192,12 @@ header nav li a:hover {
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 20px;
-  padding: 50px;
+  padding: 30px;
   box-shadow: 0px 0px 80px 10px rgb(0, 0, 0);
   z-index: 10;
   text-align: center;
   margin-top: 50px;
-  width: 75%;
+  width: 100%;
 }
 .projeto{
   width: 100%;
@@ -208,12 +208,20 @@ header nav li a:hover {
   align-items: center;
 }
 /* FORMULÁRIO */
+#formBuscar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .form-section {
   flex: 1;
   background-color: rgba(252, 185, 0, 0.911);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-section h2 {
@@ -228,7 +236,7 @@ header nav li a:hover {
 
 .form-section input,
 .select {
-  width: 70%;
+  width: 10%;
 
   padding: 5px;
   margin-bottom: 10px;
@@ -237,7 +245,7 @@ header nav li a:hover {
 }
 
 .form-section button {
-  width: 70%;
+  width: 10%;
   padding: 5px;
   background-color: #007bff;
   color: white;
@@ -265,35 +273,13 @@ header nav li a:hover {
   width: 100%;
 }
 
-#listaResultados {
-  color: #272424;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-height: 375px;
-  overflow-y: auto;
- 
-  align-items: center;
-}
-
-#listaResultados li {
-  list-style: none;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid black;
-  width: 80%;
-  font-size: 10px;
-}
 
 /* ANIMAÇÃO PESO */
 .peso-animado {
   width: 300px;
   animation: girar 2s infinite alternate ease-in-out;
 }
-#result{
-  color: rgba(252, 185, 0, 0.911);
-  font-size: 100%;
-}
+ 
 .imagensFit{
  width: 50%;
 height: 70vh;
@@ -420,6 +406,163 @@ margin-top: 100px;
   position: absolute;
  
 }
+/* Estilixando Tabela Get */
+.table-busca{
+width: 100%;
+height: 100%;
+margin-top: 10px;
+display: flex;
+flex-direction: column;
+ 
+}
+.resposta-linha{
+  
+   padding: 3px;
+ 
+   border-radius: 8px;
+   margin-top: 5px;
+   display: flex;
+   flex-direction: column;
+ 
+}
+.tabela-linha{
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+ width: 100%;
+ 
+margin: 2px 0px;
+
+  
+}
+.trStyle{
+  background-color: #d1cece;
+  padding: 7px 0px;
+  border-radius: 7px;
+  
+}
+ 
+.linha-id{
+ 
+width: 50px;
+font-size:13px ;
+text-align: center;
+}
+.linha-nome{
+ 
+width: 250px;
+font-size:13px ;
+text-align: center;
+}
+.linha-cpf{
+  
+width: 150px;
+font-size:13px ;
+text-align: center;
+}
+
+.linha-email{
+ 
+width: 250px;
+font-size:13px ;
+text-align: center;
+}
+
+.linha-telefone{
+ 
+width: 120px;
+font-size:13px ;
+text-align: center;
+}
+.linha-nascimento{
+ 
+width: 80px;
+font-size:13px ;
+text-align: center;
+}
+.linha-sexo{
+ 
+width: 100px;
+font-size:13px ;
+text-align: center;
+}
+.linha-matricula{
+ 
+width: 80px;
+font-size:13px ;
+text-align: center;
+}
+.fundo-linha{
+  background-color: #0056b3;
+  height: 10px;
+}
+
+.naoEncontrado{
+  font-size: 25px;
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 80px;
+}
+.vaiDeletar{
+   position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ font-weight: bolder;
+z-index: 100000;
+}
+.textVaiDeletar p{
+  max-width: 300px;
+  color: #000000;
+  padding: 10px;
+}
+.formDeletar{
+  background-color: #f5f5f5;
+  width: 350px;
+  height: 180px;
+   border-radius: 8px;
+}
+.botoesVaiDeletar{
+ 
+  height: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+.botoesVaiDeletar .cancelar{
+padding: 6px 20px;
+  border-radius: 7px;
+  background-color:rgb(171, 155, 155);
+  color: whitesmoke;
+  font-weight: bold;
+  border: none;
+}
+.botoesVaiDeletar .confirmar{
+ padding: 6px 20px;
+  border-radius: 7px;
+  background-color:#f39d12;
+  color: whitesmoke;
+  font-weight: bold;
+  border: none;
+}
+ tr .deletAluno{
+  padding: 5px 12px;
+  border-radius: 7px;
+  background-color: #dc3545; /* vermelho bonito */
+   width: 100%;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+ margin-left: 10px;
+}
+
+ 
+
 /* RESPONSIVO */
 @media (max-width: 768px) {
   .container-projeto {

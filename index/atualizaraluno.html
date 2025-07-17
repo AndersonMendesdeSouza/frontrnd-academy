@@ -23,16 +23,17 @@
 </div>
      <div>
         <ul>
-          <li><a href="buscaraluno.html">Cadastrar</a></li>
-          <li><a href="atualizaraluno.html">Buscar</a></li>
+          <li><a href="alunocadastro.html">Cadastrar</a></li>
+          <li><a href="buscaraluno.html">Buscar</a></li>
           <li><a href="deletaraluno.html">Deletar</a></li>
         </ul>
         </div>
-</nav>
+
              <div class="voltar">
 <a href="academy.html"><button id="btn-voltar">VOLTAR</button></a>
 
         </div>
+        </nav>
     </header >
  
     <div class="text-cadastro">
@@ -75,7 +76,7 @@
           <label for="dataAtualizar">Data de Nascimento:</label>
           <input type="date" id="dataAtualizar">
 
-          <button type="submit">Atualizar</button>
+          <button type="submit" id="btn-atualizar">Atualizar</button>
         </form>
       </div>
  
@@ -90,6 +91,13 @@
 
 formAtualizar.addEventListener("submit", (click) => {
   click.preventDefault();
+const btnAtualizar = document.getElementById("btn-atualizar")
+
+btnAtualizar.innerText = "Atualizando..."
+
+setTimeout(() => {
+  
+
 
   let id = document.getElementById("idAtualizar").value;
   let nome = document.getElementById("nomeAtualizar").value;
@@ -190,7 +198,13 @@ if(dataNascimento === ""){
   .catch(erro => {
     console.error("Erro na atualização:", erro);
     alert("Erro na atualização: " + erro.message);
-  });
+  })
+  .finally(()=>{
+btnAtualizar.innerText = "Atualizar"
+  })
+
+
+  }, 0);
 
 });
 

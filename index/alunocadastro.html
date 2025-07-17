@@ -81,6 +81,10 @@
 
     </div>
     </main>
+
+
+
+
   </div>
 
   <script>
@@ -90,7 +94,7 @@
 const formCadastro = document.getElementById("formCadastro");
 formCadastro.addEventListener("submit", (event) => {
   event.preventDefault();
-buscaButton.innerText = "Enviado...";
+buscaButton.innerText = "Cadastrando...";
 
 setTimeout(() => {
   
@@ -150,13 +154,14 @@ telefone.value = telefoneFormatado;
  
   const aluno = {
     nome,
-    cpfFormatado,
+   cpf: cpfFormatado,
     email,
-    telefoneFormatado,
+    telefone: telefoneFormatado,
     sexo,
     datanascimento // cuidado com o nome que o backend espera
   };
 
+   
   const urlPost = "https://fitacademy-production.up.railway.app/academia";
 
   fetch(urlPost, {
@@ -179,13 +184,14 @@ telefone.value = telefoneFormatado;
     .catch(erro => {
       console.error("Erro no cadastro:", erro);
       alert("Erro no cadastro: " + erro.message);
-    });
-   
-})
-.finally(()=>{
+    })
+    .finally(()=>{
  buscaButton.innerText = "Cadastrar";
 })
 }, 0);
+   
+})
+
   </script>
 </body>
 

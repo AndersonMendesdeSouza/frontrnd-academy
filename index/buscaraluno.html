@@ -1,128 +1,230 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gerenciamento de Alunos</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-  <div class="container-projeto">
- <header class="hed">
-      <nav>
-<div class="logo">
-  <h1>FIT</h1>
-  <h3>Academy</h3>
-</div>
-<div class="search-box">
-  <input type="text" placeholder="Buscar aluno..." />
-  <i class="fas fa-search"></i>
-</div>
-     <div>
-        <ul>
-          <li><a href="alunocadastro.html">Cadastrar</a></li>
-          <li><a href="atualizaraluno.html">Atualizar</a></li>
-          <li><a href="deletaraluno.html">Deletar</a></li>
-        </ul>
-        </div>
-                <div class="voltar">
-<a href="academy.html"><button id="btn-voltar">VOLTAR</button></a>
 
+
+
+
+  <div class="container-projeto">
+   
+   
+    <header class="hed">
+      <nav>
+        <div class="logo">
+          <h1>FIT</h1>
+          <h3>Academy</h3>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="Buscar aluno..." />
+          <i class="fas fa-search"></i>
+        </div>
+        <div>
+          <ul>
+            <li><a href="alunocadastro.html">Cadastrar</a></li>
+            <li><a href="atualizaraluno.html">Atualizar</a></li>
+            <li><a href="deletaraluno.html">Deletar</a></li>
+          </ul>
+        </div>
+        <div class="voltar">
+          <a href="academy.html"><button id="btn-voltar">VOLTAR</button></a>
         </div>
       </nav>
-    </header >
- 
+    </header>
+
     <div class="text-cadastro">
       <h2>FAÇA O CADASTRO DOS SEUS ALUNOS.</h2>
     </div>
 
-
     <div class="container" id="cadastrados">
-
       <!-- Buscar -->
       <div class="form-section">
         <h2>Buscar</h2>
         <form id="formBuscar">
           <label for="idBusca">ID (opcional):</label>
           <input type="number" id="idBusca">
-
           <button type="submit" id="busca-submit">Buscar</button>
-
-          <div id="resultadoBusca">
-             <h3 id="result">RESULTADOS</h3>
-            <ul id="listaResultados"> </ul>
-          </div>
         </form>
-      </div>
 
+        <div id="resultadoBusca">
+          <h3 id="result">RESULTADOS</h3>
+          <table class="table-busca">
+            <thead class="tabela-tred">
+              <tr class="tabela-linha">
+                <th class="linha-id">ID</th>
+                <th class="linha-nome">Nome</th>
+                <th class="linha-cpf">CPF</th>
+                <th class="linha-email">Email</th>
+                <th class="linha-telefone">Telefone</th>
+                <th class="linha-nascimento">Nascimento</th>
+                <th class="linha-sexo">Sexo</th>
+                <th class="linha-matricula">Matricula</th>
+                 <th class="linha-matricula">Excluir</th>
+              </tr>
+            </thead>
+            <tbody class="table-linha resposta-linha">
+              <!-- Resultados da busca aqui -->
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    </main>
   </div>
 
   <script>
+  // BUSCA DE ALUNOS
+  const buscaButton = document.getElementById("busca-submit");
 
-// BUSCA DE ALUNOS
-const buscaButton = document.getElementById("busca-submit");
-buscaButton.addEventListener("click", (event) => {
-  event.preventDefault();
- 
-buscaButton.innerText = "Buscando...";
-setTimeout(() => {
-  
+  buscaButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    buscaButton.innerText = "Buscando...";
 
-  const ol = document.getElementById("listaResultados");
-  const busca = document.getElementById("idBusca");
-  let url;
+    setTimeout(() => {
+      const busca = document.getElementById("idBusca");
+      const tbody = document.querySelector("tbody.table-linha");
+      let url;
 
-  if (busca.value === null || busca.value.trim() === "") {
-    url = "https://fitacademy-production.up.railway.app/academia"; // busca todos
-  } else {
-    url = "https://fitacademy-production.up.railway.app/academia/" + busca.value; // busca por ID
-  }
-
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Erro ao buscar os dados da API");
-      }
-      return response.json();
-    })
-    .then(dados => {
-      ol.innerHTML = "";
-
-      // Se for um único aluno (objeto), transforma em array
-      if (!Array.isArray(dados)) {
-        dados = [dados];
+      if (busca.value === null || busca.value.trim() === "") {
+        url = "https://fitacademy-production.up.railway.app/academia";
+      } else {
+        url = "https://fitacademy-production.up.railway.app/academia/" + busca.value;
       }
 
-      if (dados.length === 0) {
-        const li = document.createElement("li");
-        li.textContent = "Aluno não encontrado";
-        ol.appendChild(li);
-        return;
-      }
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Erro ao buscar os dados da API");
+          }
+          return response.json();
+        })
+        .then(dados => {
+          tbody.innerHTML = "";
 
-      dados.forEach(aluno => {
-        const li = document.createElement("li");
-        li.textContent = `ID: ${aluno.id}, Nome: ${aluno.nome}, Nascimento: ${aluno.datanascimento}`;
-        ol.appendChild(li);
-      });
-    })
-    .catch(erro => {
-      console.error("Erro na requisição:", erro);
-      alert("Erro na requisição: " + erro.message);
-    })
-    .finally(()=>{
-    buscaButton.innerText = "Buscar";
-    })
+          if (!Array.isArray(dados)) {
+            dados = [dados];
+          }
 
-});
-}, 0);
+          if (dados.length === 0) {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td colspan="8">Aluno não encontrado</td>`;
+            tr.classList.add("naoEncontrado");
+            tbody.appendChild(tr);
+            buscaButton.innerText = "Buscar";
+            return;
+          }
 
-  </script>
+          dados.forEach(aluno => {
+            const tr = document.createElement("tr");
+            tr.classList.add("tabela-linha", "trStyle");
+
+            tr.innerHTML = `
+              <td class="linha-id">${aluno.id}</td> 
+              <td class="linha-nome">${aluno.nome}</td>
+              <td class="linha-cpf">${aluno.cpf}</td>
+              <td class="linha-email">${aluno.email}</td> 
+              <td class="linha-telefone">${aluno.telefone}</td>
+              <td class="linha-nascimento">${aluno.datanascimento}</td>
+              <td class="linha-sexo">${aluno.sexo}</td>
+              <td class="linha-matricula">${aluno.datamatricula}</td>
+              <td><button class="deletAluno">Deletar</button></td>
+                 
+            `;
+
+
+            const deletar = tr.querySelector(".deletAluno");
+            deletar.addEventListener("click", (click) => {
+              click.preventDefault();
+
+              const idAluno = tr.querySelector(".linha-id").innerText;
+
+              // Modal de confirmação
+              const vaiDeletar = document.createElement("div");
+              vaiDeletar.classList.add("vaiDeletar");
+
+              const formDeletar = document.createElement("form");
+              formDeletar.classList.add("formDeletar");
+
+              const textVaiDeletar = document.createElement("div");
+              textVaiDeletar.classList.add("textVaiDeletar");
+
+              const pVaiDeletar = document.createElement("p");
+              pVaiDeletar.innerText =
+                "Atenção: Ao confirmar esta ação, o aluno será permanentemente excluído do sistema. Esta operação é irreversível. Tem certeza de que deseja continuar?";
+
+              const botoesVaiDeletar = document.createElement("div");
+              botoesVaiDeletar.classList.add("botoesVaiDeletar");
+
+              const botaoCancelar = document.createElement("button");
+              botaoCancelar.classList.add("cancelar");
+              botaoCancelar.innerText = "Cancelar";
+
+              const botaoConfirmar = document.createElement("button");
+              botaoConfirmar.classList.add("confirmar");
+              botaoConfirmar.innerText = "Confirmar";
+
+              botoesVaiDeletar.append(botaoCancelar, botaoConfirmar);
+              textVaiDeletar.append(pVaiDeletar);
+              formDeletar.append(textVaiDeletar, botoesVaiDeletar);
+              vaiDeletar.append(formDeletar);
+
+              document.querySelector(".container-projeto").appendChild(vaiDeletar);
+
+              // Evento Confirmar
+              botaoConfirmar.addEventListener("click", (e) => {
+                e.preventDefault();
+                deletar.innerText = "Deletando...";
+
+                const URLdelet = "https://fitacademy-production.up.railway.app/academia/" + idAluno;
+
+                fetch(URLdelet, {
+                  method: "DELETE",
+                })
+                  .then(async (response) => {
+                    if (!response.ok) {
+                      const errorText = await response.text();
+                      throw new Error("Erro ao excluir o aluno!\n\n" + errorText);
+                    }
+                  })
+                  .then(() => {
+                    alert("Aluno deletado com sucesso! ID: " + idAluno);
+                    vaiDeletar.remove();
+                    buscaButton.click();
+                  })
+                  .catch((erro) => {
+                    console.error("Erro ao excluir aluno:", erro);
+                    alert("Erro ao excluir: " + erro.message);
+                  })
+                  .finally(() => {
+                    deletar.innerText = "Deletar";
+                  });
+              });
+
+              // Evento Cancelar
+              botaoCancelar.addEventListener("click", (e) => {
+                e.preventDefault();
+                vaiDeletar.remove();
+              });
+            });
+
+            tbody.appendChild(tr);
+          });
+
+          buscaButton.innerText = "Buscar";
+        })
+        .catch((error) => {
+          console.error(error);
+          buscaButton.innerText = "Buscar";
+        });
+    }, 300);
+  });
+</script>
+
 </body>
-
 </html>
