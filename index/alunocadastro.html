@@ -25,7 +25,7 @@
         <ul>
           <li><a href="alunocadastro.html">Cadastrar</a></li>
           <li><a href="buscaraluno.html">Buscar</a></li>
-          <li><a href="atualizaraluno.html">Atualizar</a></li>
+      
         </ul>
         </div>
      
@@ -122,6 +122,8 @@ const spanerroTelef = document.getElementById("erroTelefone")
 if(!cpfFormatado){
 spanerroCPF.textContent = "Erro CPF invalido!"
 cpf.focus();
+buscaButton.innerText = "Cadastrar";
+
 return
 }else{
 spanerroCPF.textContent = "";
@@ -145,6 +147,7 @@ const telefoneFormatado = formataTelefone(telefone.value)
 if(!telefoneFormatado){
 spanerroTelef.textContent = "Erro Telefone invalido!"
 telefone.focus();
+buscaButton.innerText = "Cadastrar";
 return
 }else{
 spanerroTelef.textContent = "";

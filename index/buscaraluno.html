@@ -30,7 +30,6 @@
           <ul>
             <li><a href="alunocadastro.html">Cadastrar</a></li>
             <li><a href="buscaraluno.html">Buscar</a></li>
-            <li><a href="atualizaraluno.html">Atualizar</a></li>
           </ul>
         </div>
         <div class="voltar">
@@ -43,7 +42,7 @@
       <h2>BUSQUE E DELETE SEUS ALUNOS.</h2>
     </div>
 
-    <div class="container" id="cadastrados">
+    <div class="container containerBusca" id="cadastrados">
       <!-- Buscar -->
       <div class="form-section">
         <h2>Buscar</h2>
@@ -67,6 +66,7 @@
                 <th class="linha-sexo">Sexo</th>
                 <th class="linha-matricula">Matricula</th>
                  <th class="linha-matricula">Excluir</th>
+                 <th class="linha-matricula">Editar</th>
               </tr>
             </thead>
             <tbody class="table-linha resposta-linha">
@@ -134,10 +134,11 @@
               <td class="linha-sexo">${aluno.sexo}</td>
               <td class="linha-matricula">${aluno.datamatricula}</td>
               <td><button class="deletAluno">Deletar</button></td>
+              <td><button class="editAluno">Editar</button></td>
                  
             `;
 
-
+//Função deletar aluno
             const deletar = tr.querySelector(".deletAluno");
             deletar.addEventListener("click", (click) => {
               click.preventDefault();
@@ -212,9 +213,179 @@
                 vaiDeletar.remove();
               });
             });
-
             tbody.appendChild(tr);
-          });
+            //Função editar aluno
+      const editar = tr.querySelector(".editAluno");
+editar.addEventListener("click", (click) => { 
+ 
+  
+  if(tbody.querySelector("tr.trr")){
+editar.disabled = true;
+return
+ }
+  editar.disabled = false;
+ 
+
+ const trr = document.createElement("tr");
+            trr.classList.add("tabela-linha", "trStyle", "trr");
+
+            trr.innerHTML = `
+              <td class="linha-id" id="alteracao">${aluno.id}</td> 
+              <td class="linha-nome"id="alteracao"> <input type="text" id="nomeAtualizar" value="${aluno.nome}"></td>
+              <td class="linha-cpf"id="alteracao"><input type="text" id="nomeAtualizar" value="${aluno.cpf}"></td>
+              <td class="linha-email"id="alteracao"><input type="text" id="nomeAtualizar" value="${aluno.email}"></td> 
+              <td class="linha-telefone"id="alteracao"><input type="text" id="nomeAtualizar" value="${aluno.telefone}"></td>
+              <td class="linha-nascimento"id="alteracao"><input type="text" id="nomeAtualizar" value="${aluno.datanascimento}"></td>
+              <td class="linha-sexo"id="alteracao"><select name="seco" id="sexoo" class="select selectAtualizar" required>
+            <option value="" selected>Sexo</option>
+            <option value="MASCULINO">Masculino</option>
+            <option value="FEMININO">Feminino</option>
+            <option value="PREFIRONAODIZAR">Prefiro não Dizer</option>
+
+          </select></td>
+              <td class="linha-matricula"id="alteracao"><input type="text" id="nomeAtualizar" value="${aluno.datamatricula}"></td>
+              <td><button class="cancelaAluno">Cancelar</button></td>
+                  <td><button class="salveAluno">Salvar</button></td>
+            `;
+             
+     tbody.appendChild(trr)
+
+     
+const salveAluno = trr.querySelector(".salveAluno")
+
+ salveAluno.addEventListener("click", (click) => { 
+  click.preventDefault();
+
+salveAluno.innerText = "Salvando..."
+
+let id = trr.querySelector(".linha-id").innerHTML
+  // let nome = document.getElementById("nomeAtualizar").value;
+let nome = trr.querySelector(".linha-nome input").value;
+ // let cpf = document.getElementById("cpfAtualizar");
+ let cpf = trr.querySelector(".linha-cpf input").value;
+  // let email = document.getElementById("emailAtualizar").value;
+   let email = trr.querySelector(".linha-email input").value;
+  // let telefone = document.getElementById("telefoneAtualizar");
+  let telefone = trr.querySelector(".linha-telefone input").value;
+  // let sexo = document.getElementById("sexo").value;
+let sexo = trr.querySelector(".linha-sexo select").value;
+  // let dataNascimento = document.getElementById("dataAtualizar").value;
+    let datanascimento = trr.querySelector(".linha-nascimento input").value;
+
+ 
+
+ function formataCPF(cpf){
+  // Remove tudo que não for número
+    cpf = cpf.replace(/\D/g,"");
+// Aplica a máscara se tiver 11 dígitos
+  if (cpf.length === 11) {
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+
+  }else if(cpf.length > 0 && cpf.length !== 11 ) {
+    return null;
+
+  }   
+  else if(cpf.length ===0 ) {
+    return "";
+  } 
+  
+ }
+  
+  const cpfFormatado = formataCPF(cpf)
+
+ function formataTelefone(telefone){
+  // Remove tudo que não for número
+    telefone = telefone.replace(/\D/g,"");
+// Aplica a máscara se tiver 11 dígitos
+  if (telefone.length === 11) {
+    return telefone.replace(/(\d{2})(\d{5})(\d{4})/, "$1 $2-$3");
+
+  }else if(telefone.length > 0 && telefone.length !== 11 ) {
+    return null;
+  }   
+  else if(telefone.length === 0 ) {
+    return telefone;
+  }  
+ 
+}
+
+
+const telefoneFormatado = formataTelefone(telefone)
+
+if(nome === ""){
+  nome =null;
+}
+
+if(cpf === ""){
+  cpf =null;
+}
+if(email === ""){
+  email =null;
+}
+if(telefone === ""){
+  telefone =null;
+}
+if(sexo === ""){
+  sexo =null;
+}
+if(datanascimento === ""){
+  datanascimento =null;
+}
+ 
+
+ 
+  const alunoPut = {
+    id,
+    nome,
+    cpf: cpfFormatado,
+    email,
+    telefone:telefoneFormatado,
+    sexo,
+    datanascimento,
+  };
+
+  
+
+const URL = 'https://fitacademy-production.up.railway.app/academia';
+ fetch(URL, {
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(alunoPut)
+})
+  .then(async response => {
+    if (!response.ok) {
+      const errorText = await response.text(); // Pega o erro real do backend
+      throw new Error("Erro ao atualizar os dados do aluno!\n\n" + errorText);
+    }
+    return response.json();
+  })
+  .then(valor => {
+    alert("Aluno atualizado com sucesso! ID: " + valor.id);
+   
+  })
+  .catch(erro => {
+    console.error("Erro na atualização:", erro);
+    alert("Erro na atualização: " + erro.message);
+  })
+  .finally(()=>{
+salveAluno.innerText = "Salvo"
+buscaButton.click();
+  })
+
+
+  },); 
+
+   const cancelaAluno = trr.querySelector(".cancelaAluno")
+ cancelaAluno.addEventListener("click", (click)=>{
+  click.preventDefault();
+  
+ trr.remove()
+ editar.disabled = false;
+ })
+ }, )
+})  });
 
           buscaButton.innerText = "Buscar";
         })
@@ -223,7 +394,7 @@
           buscaButton.innerText = "Buscar";
         });
     }, 300);
-  });
+  //});
 </script>
 
 </body>

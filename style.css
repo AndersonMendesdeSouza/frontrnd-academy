@@ -12,6 +12,7 @@ body {
   color: white;
   font-family: Arial, sans-serif;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 /* CONTAINER PRINCIPAL */
@@ -198,7 +199,13 @@ header nav li a:hover {
   z-index: 10;
   text-align: center;
   margin-top: 50px;
-  width: 100%;
+  width: 40%;
+}
+.containerBusca{
+  width: 90%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
 .projeto {
@@ -216,6 +223,7 @@ header nav li a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 20%;
 }
 
 .form-section {
@@ -226,6 +234,8 @@ header nav li a:hover {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-section h2 {
@@ -240,17 +250,18 @@ header nav li a:hover {
 
 .form-section input,
 .select {
-  width: 10%;
+  width: 100%;
 
-  padding: 5px;
+  padding: 7px 0px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  text-align: center;
 }
 
 .form-section button {
-  width: 10%;
-  padding: 5px;
+  width: 100%;
+   padding: 7px 0px;
   background-color: #007bff;
   color: white;
   border: none;
@@ -355,14 +366,14 @@ header nav li a:hover {
 
 .input-wrapper input {
   width: 80%;
-  padding: 10px 10px 5px 10px;
   /* espaço para o ícone */
   background: transparent;
   border: none;
-  border-bottom: 1px solid #ccc;
-  color: white;
+  border-bottom: 1px solid #9b9292;
+  color: rgb(255, 255, 255);
   font-size: 12px;
   outline: none;
+  text-align: center;
 }
 
 .input-wrapper input::placeholder {
@@ -452,15 +463,15 @@ header nav li a:hover {
   width: 100%;
 
   margin: 2px 0px;
-
+ padding: 5px;
 
 }
 
 .trStyle {
   background-color: #d1cece;
-  padding: 7px 0px;
+ 
   border-radius: 7px;
-
+border: 1px solid #8e8b8b;
 }
 
 .linha-id {
@@ -584,17 +595,30 @@ header nav li a:hover {
 }
 
 tr .deletAluno {
-  padding: 5px 12px;
+  padding: 4px 7px;
   border-radius: 7px;
   background-color: #dc3545;
   /* vermelho bonito */
-  width: 100%;
+  width: 90%;
   font-weight: bold;
   border: none;
   cursor: pointer;
   transition: 0.3s;
   margin-left: 10px;
 }
+tr .editAluno {
+  padding: 4px 7px;
+  border-radius: 7px;
+ 
+  /* vermelho bonito */
+  width: 90%;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 18px;
+}
+
 
 
 .footer {
@@ -612,6 +636,45 @@ tr .deletAluno {
 .footer-content p {
   margin: 5px 0;
 }
+.button-cadastrarAluno button{
+  padding: 12px 100px;
+}
+.trr{
+ 
+height: 40px;
+display: flex;
+flex-direction: row;
+ justify-content: center;
+ align-items: center;
+gap: 7px;
+
+}
+.trr input{
+  height: 20px;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 1px solid rgb(22, 21, 21);
+}
+.trr .salveAluno{
+ 
+width: 50px;
+font-size: 10px;
+}
+.trr .cancelaAluno{
+background-color: #9e9696;
+width: 50px;
+font-size: 10px;
+}
+.selectAtualizar{
+   background-color: transparent;
+   border: 1px solid black;
+ height: 30px;
+font-size: 12px;
+margin-top: 10px;
+ 
+ 
+}
+
 /* RESPONSIVO */
 @media (max-width: 768px) {
   .container-projeto {
@@ -635,7 +698,7 @@ tr .deletAluno {
   }
 
   header nav li a {
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .logo h1 {
