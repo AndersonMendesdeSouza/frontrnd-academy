@@ -5,7 +5,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   scroll-behavior: smooth;
   background-color: #272424;
   color: white;
@@ -20,7 +21,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-gap: 50px;
+  gap: 50px;
   background-color: #272424;
 }
 
@@ -199,7 +200,8 @@ header nav li a:hover {
   margin-top: 50px;
   width: 100%;
 }
-.projeto{
+
+.projeto {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -207,13 +209,15 @@ header nav li a:hover {
   justify-content: center;
   align-items: center;
 }
+
 /* FORMULÁRIO */
-#formBuscar{
+#formBuscar {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .form-section {
   flex: 1;
   background-color: rgba(252, 185, 0, 0.911);
@@ -260,13 +264,13 @@ header nav li a:hover {
 
 /* RESULTADOS */
 #resultadoBusca {
- margin: 30px 10px;
- height: 50vh;
+  margin: 30px 10px;
+  height: 50vh;
   background: #e9ecef;
   padding: 10px;
   border-radius: 5px;
   color: black;
- 
+
 }
 
 #efeito {
@@ -279,88 +283,97 @@ header nav li a:hover {
   width: 300px;
   animation: girar 2s infinite alternate ease-in-out;
 }
- 
-.imagensFit{
- width: 50%;
-height: 70vh;
-display: flex;
- justify-content: center;
- align-items: center;
- 
- margin: 50px;
- gap: 20px;
+
+.imagensFit {
+  width: 50%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 50px;
+  gap: 20px;
 }
-.imgfit{
+
+.imgfit {
   width: 40%;
   height: 100%;
-  
+
 }
-.imgfit img{
+
+.imgfit img {
   width: 100%;
- height: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 90px 20px black;
- 
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 90px 20px black;
+
 }
-#top{
-    height: 80%;
+
+#top {
+  height: 80%;
 }
-.projeto-login{
+
+.projeto-login {
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
- 
+
 }
-.tela-login{
+
+.tela-login {
   width: 280px;
- height: 350px;
- background-color: #1a1a1a;
-display: flex;
-flex-direction: column;
-align-items: center;
- 
-gap: 50px;
-border-radius: 15px;
+  height: 350px;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 50px;
+  border-radius: 15px;
 }
-#logo-login{
- margin-top: 50px;
+
+#logo-login {
+  margin-top: 50px;
 }
- 
- 
+
+
 .input-wrapper {
-    position: relative;
-    margin-bottom: 30px;
-    width: 100%;
-   
-  }
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
 
-  .input-wrapper i {
-    position: absolute;
-    top: 12px;
-    left: 10px;
-    color: #bbb;
-  }
-
-  .input-wrapper input {
-    width: 80%;
-    padding: 10px 10px 5px 10px; /* espaço para o ícone */
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    color: white;
-    font-size: 12px;
-    outline: none;
-  }
-
-  .input-wrapper input::placeholder {
-    color: #aaa;
-  }
-  #form-login{
-   text-align: center;
 }
-.button-login{
+
+.input-wrapper i {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  color: #bbb;
+}
+
+.input-wrapper input {
+  width: 80%;
+  padding: 10px 10px 5px 10px;
+  /* espaço para o ícone */
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: white;
+  font-size: 12px;
+  outline: none;
+}
+
+.input-wrapper input::placeholder {
+  color: #aaa;
+}
+
+#form-login {
+  text-align: center;
+}
+
+.button-login {
   padding: 5px 20px;
   border-radius: 8px;
   background-color: #f39c12;
@@ -369,200 +382,236 @@ border-radius: 15px;
   border: none;
   font-size: 15px;
 }
-.button-login a{
+
+.button-login a {
   color: #2e2e2e;
   text-decoration: none;
 }
-#logo-login{
+
+#logo-login {
   padding-top: 20px;
 }
-.cadas{
+
+.cadas {
   margin-top: -20px;
 }
 
-.corpo-cadastro{
+.corpo-cadastro {
 
-margin-top: 100px;
+  margin-top: 100px;
 
 }
-#btn-voltar{
+
+#btn-voltar {
   padding: 10px 35px;
   border-radius: 7px;
   border: none;
   background-color: #f39c12;
   font-weight: bold;
   color: white;
-   
- 
+
+
 }
- 
-.container-load{
+
+.container-load {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2) ;
+  background-color: rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
- 
+
 }
+
 /* Estilixando Tabela Get */
-.table-busca{
-width: 100%;
-height: 100%;
-margin-top: 10px;
-display: flex;
-flex-direction: column;
- 
+.table-busca {
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+
 }
-.resposta-linha{
-  
-   padding: 3px;
- 
-   border-radius: 8px;
-   margin-top: 5px;
-   display: flex;
-   flex-direction: column;
- 
+
+.resposta-linha {
+
+  padding: 3px;
+
+  border-radius: 8px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+
 }
-.tabela-linha{
-  font-size: 13px;
+
+.tabela-linha {
+  font-size: 10px;
   display: flex;
   align-items: center;
- width: 100%;
- 
-margin: 2px 0px;
+  width: 100%;
 
-  
+  margin: 2px 0px;
+
+
 }
-.trStyle{
+
+.trStyle {
   background-color: #d1cece;
   padding: 7px 0px;
   border-radius: 7px;
-  
-}
- 
-.linha-id{
- 
-width: 50px;
-font-size:13px ;
-text-align: center;
-}
-.linha-nome{
- 
-width: 250px;
-font-size:13px ;
-text-align: center;
-}
-.linha-cpf{
-  
-width: 150px;
-font-size:13px ;
-text-align: center;
+
 }
 
-.linha-email{
- 
-width: 250px;
-font-size:13px ;
-text-align: center;
+.linha-id {
+
+  width: 50px;
+  font-size: 10px;
+  text-align: center;
 }
 
-.linha-telefone{
- 
-width: 120px;
-font-size:13px ;
-text-align: center;
+.linha-nome {
+
+  width: 250px;
+  font-size: 10px;
+  text-align: center;
 }
-.linha-nascimento{
- 
-width: 80px;
-font-size:13px ;
-text-align: center;
+
+.linha-cpf {
+
+  width: 150px;
+  font-size: 10px;
+  text-align: center;
 }
-.linha-sexo{
- 
-width: 100px;
-font-size:13px ;
-text-align: center;
+
+.linha-email {
+
+  width: 250px;
+  font-size: 10px;
+  text-align: center;
 }
-.linha-matricula{
- 
-width: 80px;
-font-size:13px ;
-text-align: center;
+
+.linha-telefone {
+
+  width: 120px;
+  font-size: 10px;
+  text-align: center;
 }
-.fundo-linha{
+
+.linha-nascimento {
+
+  width: 80px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.linha-sexo {
+
+  width: 100px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.linha-matricula {
+
+  width: 80px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.fundo-linha {
   background-color: #0056b3;
   height: 10px;
 }
 
-.naoEncontrado{
+.naoEncontrado {
   font-size: 25px;
   display: flex;
   flex-direction: column-reverse;
   margin-top: 80px;
 }
-.vaiDeletar{
-   position: fixed;
+
+.vaiDeletar {
+  position: fixed;
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
- font-weight: bolder;
-z-index: 100000;
+  font-weight: bolder;
+  z-index: 100000;
 }
-.textVaiDeletar p{
+
+.textVaiDeletar p {
   max-width: 300px;
   color: #000000;
   padding: 10px;
 }
-.formDeletar{
+
+.formDeletar {
   background-color: #f5f5f5;
   width: 350px;
   height: 180px;
-   border-radius: 8px;
+  border-radius: 8px;
 }
-.botoesVaiDeletar{
- 
+
+.botoesVaiDeletar {
+
   height: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
+
 }
-.botoesVaiDeletar .cancelar{
-padding: 6px 20px;
+
+.botoesVaiDeletar .cancelar {
+  padding: 6px 20px;
   border-radius: 7px;
-  background-color:rgb(171, 155, 155);
+  background-color: rgb(171, 155, 155);
   color: whitesmoke;
   font-weight: bold;
   border: none;
 }
-.botoesVaiDeletar .confirmar{
- padding: 6px 20px;
+
+.botoesVaiDeletar .confirmar {
+  padding: 6px 20px;
   border-radius: 7px;
-  background-color:#f39d12;
+  background-color: #f39d12;
   color: whitesmoke;
   font-weight: bold;
   border: none;
 }
- tr .deletAluno{
+
+tr .deletAluno {
   padding: 5px 12px;
   border-radius: 7px;
-  background-color: #dc3545; /* vermelho bonito */
-   width: 100%;
+  background-color: #dc3545;
+  /* vermelho bonito */
+  width: 100%;
   font-weight: bold;
   border: none;
   cursor: pointer;
   transition: 0.3s;
- margin-left: 10px;
+  margin-left: 10px;
 }
 
- 
 
+.footer {
+  width: 100%;
+  background-color: #1a1a1a;
+  color: #f1f1f1;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 50px;
+  border-top: 2px solid #f39c12;
+  box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.footer-content p {
+  margin: 5px 0;
+}
 /* RESPONSIVO */
 @media (max-width: 768px) {
   .container-projeto {
@@ -586,7 +635,7 @@ padding: 6px 20px;
   }
 
   header nav li a {
-    font-size: 13px;
+    font-size: 10px;
   }
 
   .logo h1 {
@@ -619,7 +668,7 @@ padding: 6px 20px;
     margin-top: 180px;
   }
 
- 
+
 
   .peso-animado {
     width: 180px;
@@ -634,7 +683,7 @@ padding: 6px 20px;
     justify-content: center;
     align-items: center;
     width: 90%;
- 
+
   }
 
   .form-section {
@@ -654,25 +703,35 @@ padding: 6px 20px;
   .form-section button,
   .select {
     font-size: 14px;
-    width: 100%;
-    padding: 10px;
-    min-height: 40px;
+    width: 90%;
+    min-height: 10px;
   }
 
   #resultadoBusca {
     margin: 20px 0;
     padding: 10px;
-    height: auto;
+    height: 150px;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+ scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
   }
+  #resultadoBusca:-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Edge moderno */
+}
 
   #listaResultados {
     max-height: 250px;
     padding: 5px;
     gap: 8px;
   }
-  #result{
-    font-size: 50%;
+
+  #result {
+    font-size: 60%;
+   
   }
+
   #listaResultados li {
     font-size: 12px;
     padding: 6px 8px;
@@ -697,10 +756,10 @@ padding: 6px 20px;
   }
 
   .text-cadastro {
-   
+
     font-size: 80%;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 250px;
   }
 
   .imagensFit {
@@ -731,16 +790,191 @@ padding: 6px 20px;
     font-size: 14px;
   }
 
-  #btn-voltar{
-  padding: 7px 25px;
-  border-radius: 7px;
-  border: none;
-  background-color: #f39c12;
-  font-weight: bold;
-  color: white;
+  #btn-voltar {
+    padding: 7px 25px;
+    border-radius: 7px;
+    border: none;
+    background-color: #f39c12;
+    font-weight: bold;
+    color: white;
+  }
+
+  .table-busca {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .resposta-linha {
+
+    padding: 3px;
+
+    border-radius: 8px;
+  margin-top: -3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
    
- 
-   
-}
- 
+  }
+
+  .tabela-linha {
+
+    display: flex;
+height: 25px;
+    width: 1160px;
+ padding: 15px 10px;
+
+  }
+
+  .trStyle {
+    background-color: #d1cece;
+    border-radius: 7px;
+    margin-top: -5px;
+     padding-right: 22px;
+  }
+
+  .linha-id {
+
+    width: 50px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .linha-nome {
+
+    width: 250px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .linha-cpf {
+
+    width: 150px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .linha-email {
+
+    width: 250px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .linha-telefone {
+
+    width: 120px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .linha-nascimento {
+
+    width: 80px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .linha-sexo {
+
+    width: 100px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .linha-matricula {
+
+    width: 80px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .fundo-linha {
+    background-color: #0056b3;
+    height: 10px;
+  }
+
+  .naoEncontrado {
+    font-size: 25px;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 80px;
+  }
+
+  .vaiDeletar {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    z-index: 100000;
+  }
+
+  .textVaiDeletar p {
+    max-width: 100%;
+    color: #000000;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .formDeletar {
+    background-color: #f5f5f5;
+    width: 250px;
+    height: 160px;
+    border-radius: 8px;
+  }
+
+  .botoesVaiDeletar {
+
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+  }
+
+  .botoesVaiDeletar .cancelar {
+    padding: 6px 20px;
+    border-radius: 7px;
+    background-color: rgb(171, 155, 155);
+    color: whitesmoke;
+    font-weight: bold;
+    border: none;
+  }
+
+  .botoesVaiDeletar .confirmar {
+    padding: 6px 20px;
+    border-radius: 7px;
+    background-color: #f39d12;
+    color: whitesmoke;
+    font-weight: bold;
+    border: none;
+  }
+
+  tr .deletAluno {
+    padding: 5px 12px;
+    border-radius: 7px;
+    background-color: #dc3545;
+    /* vermelho bonito */
+    width: 80%;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 10px;
+    font-size: 10px;
+height: 20px;
+  }
+  .footer {
+    font-size: 12px;
+    padding: 15px 5px;
+  }
+
+
 }

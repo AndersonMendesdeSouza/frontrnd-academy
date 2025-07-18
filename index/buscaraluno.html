@@ -29,8 +29,8 @@
         <div>
           <ul>
             <li><a href="alunocadastro.html">Cadastrar</a></li>
+            <li><a href="buscaraluno.html">Buscar</a></li>
             <li><a href="atualizaraluno.html">Atualizar</a></li>
-            <li><a href="deletaraluno.html">Deletar</a></li>
           </ul>
         </div>
         <div class="voltar">
@@ -40,7 +40,7 @@
     </header>
 
     <div class="text-cadastro">
-      <h2>FAÇA O CADASTRO DOS SEUS ALUNOS.</h2>
+      <h2>BUSQUE E DELETE SEUS ALUNOS.</h2>
     </div>
 
     <div class="container" id="cadastrados">
@@ -193,7 +193,7 @@
                     }
                   })
                   .then(() => {
-                    alert("Aluno deletado com sucesso! ID: " + idAluno);
+                    //alert("Aluno deletado com sucesso! ID: " + idAluno);
                     vaiDeletar.remove();
                     buscaButton.click();
                   })
