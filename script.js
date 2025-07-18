@@ -1,4 +1,9 @@
+ const token = localStorage.getItem('token');
 
+if (!token) {
+  window.location.href = '/index.html'; // volta pro login se não tiver token
+}
+ 
 // BUSCA DE ALUNOS
 const buscaButton = document.getElementById("busca-submit");
 buscaButton.addEventListener("click", (event) => {

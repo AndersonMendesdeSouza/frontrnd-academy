@@ -1,4 +1,9 @@
+ const token = localStorage.getItem('token');
 
+if (!token) {
+  window.location.href = '/index.html'; // volta pro login se não tiver token
+}
+ 
 
 function logando(){  const loading = document.createElement("div")
 loading.innerHTML = "<label>Carregando...</label>"
