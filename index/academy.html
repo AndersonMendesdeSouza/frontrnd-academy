@@ -76,7 +76,14 @@
    
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js">
+    const token = localStorage.getItem('token');
+
+if (!token) {
+  window.location.href = 'academy.html'; // volta pro login se não tiver token
+}
+
+  </script>
 </body>
 
 </html>
