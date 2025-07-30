@@ -43,6 +43,6 @@ link.click();
   console.error("Erro ao comunicar com o servidor", erro)
 alert("Erro ao fazer login")
 })
-
+1 
 form.reset();
  })

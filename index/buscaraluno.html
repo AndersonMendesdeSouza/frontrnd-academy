@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,8 +15,8 @@
 
 
   <div class="container-projeto">
-   
-   
+
+
     <header class="hed">
       <nav>
         <div class="logo">
@@ -65,8 +66,8 @@
                 <th class="linha-nascimento">Nascimento</th>
                 <th class="linha-sexo">Sexo</th>
                 <th class="linha-matricula">Matricula</th>
-                 <th class="linha-matricula">Excluir</th>
-                 <th class="linha-matricula">Editar</th>
+                <th class="linha-matricula">Excluir</th>
+                <th class="linha-matricula">Editar</th>
               </tr>
             </thead>
             <tbody class="table-linha resposta-linha">
@@ -79,52 +80,52 @@
   </div>
 
   <script>
-  // BUSCA DE ALUNOS
-  const buscaButton = document.getElementById("busca-submit");
+    // BUSCA DE ALUNOS
+    const buscaButton = document.getElementById("busca-submit");
 
-  buscaButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    buscaButton.innerText = "Buscando...";
+    buscaButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      buscaButton.innerText = "Buscando...";
 
-    setTimeout(() => {
-      const busca = document.getElementById("idBusca");
-      const tbody = document.querySelector("tbody.table-linha");
-      let url;
+      setTimeout(() => {
+        const busca = document.getElementById("idBusca");
+        const tbody = document.querySelector("tbody.table-linha");
+        let url;
 
-      if (busca.value === null || busca.value.trim() === "") {
-        url = "https://fitacademy-production.up.railway.app/academia";
-      } else {
-        url = "https://fitacademy-production.up.railway.app/academia/" + busca.value;
-      }
+        if (busca.value === null || busca.value.trim() === "") {
+          url = "https://fitacademy-production.up.railway.app/academia";
+        } else {
+          url = "https://fitacademy-production.up.railway.app/academia/" + busca.value;
+        }
 
-      fetch(url)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error("Erro ao buscar os dados da API");
-          }
-          return response.json();
-        })
-        .then(dados => {
-          tbody.innerHTML = "";
+        fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Erro ao buscar os dados da API");
+            }
+            return response.json();
+          })
+          .then(dados => {
+            tbody.innerHTML = "";
 
-          if (!Array.isArray(dados)) {
-            dados = [dados];
-          }
+            if (!Array.isArray(dados)) {
+              dados = [dados];
+            }
 
-          if (dados.length === 0) {
-            const tr = document.createElement("tr");
-            tr.innerHTML = `<td colspan="8">Aluno não encontrado</td>`;
-            tr.classList.add("naoEncontrado");
-            tbody.appendChild(tr);
-            buscaButton.innerText = "Buscar";
-            return;
-          }
+            if (dados.length === 0) {
+              const tr = document.createElement("tr");
+              tr.innerHTML = `<td colspan="8">Aluno não encontrado</td>`;
+              tr.classList.add("naoEncontrado");
+              tbody.appendChild(tr);
+              buscaButton.innerText = "Buscar";
+              return;
+            }
 
-          dados.forEach(aluno => {
-            const tr = document.createElement("tr");
-            tr.classList.add("tabela-linha", "trStyle");
+            dados.forEach(aluno => {
+              const tr = document.createElement("tr");
+              tr.classList.add("tabela-linha", "trStyle");
 
-            tr.innerHTML = `
+              tr.innerHTML = `
               <td class="linha-id">${aluno.id}</td> 
               <td class="linha-nome">${aluno.nome}</td>
               <td class="linha-cpf">${aluno.cpf}</td>
@@ -138,98 +139,98 @@
                  
             `;
 
-//Função deletar aluno
-            const deletar = tr.querySelector(".deletAluno");
-            deletar.addEventListener("click", (click) => {
-              click.preventDefault();
+              //Função deletar aluno
+              const deletar = tr.querySelector(".deletAluno");
+              deletar.addEventListener("click", (click) => {
+                click.preventDefault();
 
-              const idAluno = tr.querySelector(".linha-id").innerText;
+                const idAluno = tr.querySelector(".linha-id").innerText;
 
-              // Modal de confirmação
-              const vaiDeletar = document.createElement("div");
-              vaiDeletar.classList.add("vaiDeletar");
+                // Modal de confirmação
+                const vaiDeletar = document.createElement("div");
+                vaiDeletar.classList.add("vaiDeletar");
 
-              const formDeletar = document.createElement("form");
-              formDeletar.classList.add("formDeletar");
+                const formDeletar = document.createElement("form");
+                formDeletar.classList.add("formDeletar");
 
-              const textVaiDeletar = document.createElement("div");
-              textVaiDeletar.classList.add("textVaiDeletar");
+                const textVaiDeletar = document.createElement("div");
+                textVaiDeletar.classList.add("textVaiDeletar");
 
-              const pVaiDeletar = document.createElement("p");
-              pVaiDeletar.innerText =
-                "Atenção: Ao confirmar esta ação, o aluno será permanentemente excluído do sistema. Esta operação é irreversível. Tem certeza de que deseja continuar?";
+                const pVaiDeletar = document.createElement("p");
+                pVaiDeletar.innerText =
+                  "Atenção: Ao confirmar esta ação, o aluno será permanentemente excluído do sistema. Esta operação é irreversível. Tem certeza de que deseja continuar?";
 
-              const botoesVaiDeletar = document.createElement("div");
-              botoesVaiDeletar.classList.add("botoesVaiDeletar");
+                const botoesVaiDeletar = document.createElement("div");
+                botoesVaiDeletar.classList.add("botoesVaiDeletar");
 
-              const botaoCancelar = document.createElement("button");
-              botaoCancelar.classList.add("cancelar");
-              botaoCancelar.innerText = "Cancelar";
+                const botaoCancelar = document.createElement("button");
+                botaoCancelar.classList.add("cancelar");
+                botaoCancelar.innerText = "Cancelar";
 
-              const botaoConfirmar = document.createElement("button");
-              botaoConfirmar.classList.add("confirmar");
-              botaoConfirmar.innerText = "Confirmar";
+                const botaoConfirmar = document.createElement("button");
+                botaoConfirmar.classList.add("confirmar");
+                botaoConfirmar.innerText = "Confirmar";
 
-              botoesVaiDeletar.append(botaoCancelar, botaoConfirmar);
-              textVaiDeletar.append(pVaiDeletar);
-              formDeletar.append(textVaiDeletar, botoesVaiDeletar);
-              vaiDeletar.append(formDeletar);
+                botoesVaiDeletar.append(botaoCancelar, botaoConfirmar);
+                textVaiDeletar.append(pVaiDeletar);
+                formDeletar.append(textVaiDeletar, botoesVaiDeletar);
+                vaiDeletar.append(formDeletar);
 
-              document.querySelector(".container-projeto").appendChild(vaiDeletar);
+                document.querySelector(".container-projeto").appendChild(vaiDeletar);
 
-              // Evento Confirmar
-              botaoConfirmar.addEventListener("click", (e) => {
-                e.preventDefault();
-                deletar.innerText = "Deletando...";
+                // Evento Confirmar
+                botaoConfirmar.addEventListener("click", (e) => {
+                  e.preventDefault();
+                  deletar.innerText = "Deletando...";
 
-                const URLdelet = "https://fitacademy-production.up.railway.app/academia/" + idAluno;
+                  const URLdelet = "https://fitacademy-production.up.railway.app/academia/" + idAluno;
 
-                fetch(URLdelet, {
-                  method: "DELETE",
-                })
-                  .then(async (response) => {
-                    if (!response.ok) {
-                      const errorText = await response.text();
-                      throw new Error("Erro ao excluir o aluno!\n\n" + errorText);
-                    }
+                  fetch(URLdelet, {
+                    method: "DELETE",
                   })
-                  .then(() => {
-                    //alert("Aluno deletado com sucesso! ID: " + idAluno);
-                    vaiDeletar.remove();
-                    buscaButton.click();
-                  })
-                  .catch((erro) => {
-                    console.error("Erro ao excluir aluno:", erro);
-                    alert("Erro ao excluir: " + erro.message);
-                  })
-                  .finally(() => {
-                    deletar.innerText = "Deletar";
-                  });
+                    .then(async (response) => {
+                      if (!response.ok) {
+                        const errorText = await response.text();
+                        throw new Error("Erro ao excluir o aluno!\n\n" + errorText);
+                      }
+                    })
+                    .then(() => {
+                      //alert("Aluno deletado com sucesso! ID: " + idAluno);
+                      vaiDeletar.remove();
+                      buscaButton.click();
+                    })
+                    .catch((erro) => {
+                      console.error("Erro ao excluir aluno:", erro);
+                      alert("Erro ao excluir: " + erro.message);
+                    })
+                    .finally(() => {
+                      deletar.innerText = "Deletar";
+                    });
+                });
+
+                // Evento Cancelar
+                botaoCancelar.addEventListener("click", (e) => {
+                  e.preventDefault();
+                  vaiDeletar.remove();
+                });
               });
+              tbody.appendChild(tr);
+              //Função editar aluno
+              const editar = tr.querySelector(".editAluno");
+              editar.addEventListener("click", (click) => {
 
-              // Evento Cancelar
-              botaoCancelar.addEventListener("click", (e) => {
-                e.preventDefault();
-                vaiDeletar.remove();
-              });
-            });
-            tbody.appendChild(tr);
-            //Função editar aluno
-      const editar = tr.querySelector(".editAluno");
-editar.addEventListener("click", (click) => { 
- 
-  
-  if(tbody.querySelector("tr.trr")){
-editar.disabled = true;
-return
- }
-  editar.disabled = false;
- 
 
- const trr = document.createElement("tr");
-            trr.classList.add("tabela-linha", "trStyle", "trr");
+                if (tbody.querySelector("tr.trr")) {
+                  editar.disabled = true;
+                  return
+                }
+                editar.disabled = false;
 
-            trr.innerHTML = `
+
+                const trr = document.createElement("tr");
+                trr.classList.add("tabela-linha", "trStyle", "trr");
+
+                trr.innerHTML = `
               <td class="linha-id" id="alteracao">${aluno.id}</td> 
               <td class="linha-nome"id="alteracao"> <input type="text" id="nomeAtualizar" value="${aluno.nome}"></td>
               <td class="linha-cpf"id="alteracao"><input type="text" id="nomeAtualizar" value="${aluno.cpf}"></td>
@@ -240,162 +241,164 @@ return
             <option value="" selected>Sexo</option>
             <option value="MASCULINO">Masculino</option>
             <option value="FEMININO">Feminino</option>
-            <option value="PREFIRONAODIZAR">Prefiro não Dizer</option>
+            <option value="PREFIRONAODIZER">Prefiro não Dizer</option>
 
           </select></td>
               <td class="linha-matricula"id="alteracao">${aluno.datamatricula}</td>
               <td><button class="cancelaAluno">Cancelar</button></td>
                   <td><button class="salveAluno">Salvar</button></td>
             `;
-             
-     tbody.appendChild(trr)
 
-     
-const salveAluno = trr.querySelector(".salveAluno")
-
- salveAluno.addEventListener("click", (click) => { 
-  click.preventDefault();
-
-salveAluno.innerText = "Salvando..."
-
-let id = trr.querySelector(".linha-id").innerHTML
-  // let nome = document.getElementById("nomeAtualizar").value;
-let nome = trr.querySelector(".linha-nome input").value;
- // let cpf = document.getElementById("cpfAtualizar");
- let cpf = trr.querySelector(".linha-cpf input").value;
-  // let email = document.getElementById("emailAtualizar").value;
-   let email = trr.querySelector(".linha-email input").value;
-  // let telefone = document.getElementById("telefoneAtualizar");
-  let telefone = trr.querySelector(".linha-telefone input").value;
-  // let sexo = document.getElementById("sexo").value;
-let sexo = trr.querySelector(".linha-sexo select").value;
-  // let dataNascimento = document.getElementById("dataAtualizar").value;
-    let datanascimento = trr.querySelector(".linha-nascimento input").value;
-
- 
-
- function formataCPF(cpf){
-  // Remove tudo que não for número
-    cpf = cpf.replace(/\D/g,"");
-// Aplica a máscara se tiver 11 dígitos
-  if (cpf.length === 11) {
-    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-
-  }else if(cpf.length > 0 && cpf.length !== 11 ) {
-    return null;
-
-  }   
-  else if(cpf.length ===0 ) {
-    return "";
-  } 
-  
- }
-  
-  const cpfFormatado = formataCPF(cpf)
-
- function formataTelefone(telefone){
-  // Remove tudo que não for número
-    telefone = telefone.replace(/\D/g,"");
-// Aplica a máscara se tiver 11 dígitos
-  if (telefone.length === 11) {
-    return telefone.replace(/(\d{2})(\d{5})(\d{4})/, "$1 $2-$3");
-
-  }else if(telefone.length > 0 && telefone.length !== 11 ) {
-    return null;
-  }   
-  else if(telefone.length === 0 ) {
-    return telefone;
-  }  
- 
-}
+                tbody.appendChild(trr)
 
 
-const telefoneFormatado = formataTelefone(telefone)
+                const salveAluno = trr.querySelector(".salveAluno")
 
-if(nome === ""){
-  nome =null;
-}
+                salveAluno.addEventListener("click", (click) => {
+                  click.preventDefault();
 
-if(cpf === ""){
-  cpf =null;
-}
-if(email === ""){
-  email =null;
-}
-if(telefone === ""){
-  telefone =null;
-}
-if(sexo === ""){
-  sexo =null;
-}
-if(datanascimento === ""){
-  datanascimento =null;
-}
- 
+                  salveAluno.innerText = "Salvando..."
 
- 
-  const alunoPut = {
-    id,
-    nome,
-    cpf: cpfFormatado,
-    email,
-    telefone:telefoneFormatado,
-    sexo,
-    datanascimento,
-  };
-
-  
-
-const URL = 'https://fitacademy-production.up.railway.app/academia';
- fetch(URL, {
-  method: "PUT",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(alunoPut)
-})
-  .then(async response => {
-    if (!response.ok) {
-      const errorText = await response.text(); // Pega o erro real do backend
-      throw new Error("Erro ao atualizar os dados do aluno!\n\n" + errorText);
-    }
-    return response.json();
-  })
-  .then(valor => {
-    alert("Aluno atualizado com sucesso! ID: " + valor.id);
-   
-  })
-  .catch(erro => {
-    console.error("Erro na atualização:", erro);
-    alert("Erro na atualização: " + erro.message);
-  })
-  .finally(()=>{
-salveAluno.innerText = "Salvo"
-buscaButton.click();
-  })
+                  let id = trr.querySelector(".linha-id").innerHTML
+                  // let nome = document.getElementById("nomeAtualizar").value;
+                  let nome = trr.querySelector(".linha-nome input").value;
+                  // let cpf = document.getElementById("cpfAtualizar");
+                  let cpf = trr.querySelector(".linha-cpf input").value;
+                  // let email = document.getElementById("emailAtualizar").value;
+                  let email = trr.querySelector(".linha-email input").value;
+                  // let telefone = document.getElementById("telefoneAtualizar");
+                  let telefone = trr.querySelector(".linha-telefone input").value;
+                  // let sexo = document.getElementById("sexo").value;
+                  let sexo = trr.querySelector(".linha-sexo select").value;
+                  // let dataNascimento = document.getElementById("dataAtualizar").value;
+                  let datanascimento = trr.querySelector(".linha-nascimento input").value;
 
 
-  },); 
 
-   const cancelaAluno = trr.querySelector(".cancelaAluno")
- cancelaAluno.addEventListener("click", (click)=>{
-  click.preventDefault();
-  
- trr.remove()
- editar.disabled = false;
- })
- }, )
-})  });
+                  function formataCPF(cpf) {
+                    // Remove tudo que não for número
+                    cpf = cpf.replace(/\D/g, "");
+                    // Aplica a máscara se tiver 11 dígitos
+                    if (cpf.length === 11) {
+                      return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
 
-          buscaButton.innerText = "Buscar";
-        })
+                    } else if (cpf.length > 0 && cpf.length !== 11) {
+                      return null;
+
+                    }
+                    else if (cpf.length === 0) {
+                      return "";
+                    }
+
+                  }
+
+                  const cpfFormatado = formataCPF(cpf)
+
+                  function formataTelefone(telefone) {
+                    // Remove tudo que não for número
+                    telefone = telefone.replace(/\D/g, "");
+                    // Aplica a máscara se tiver 11 dígitos
+                    if (telefone.length === 11) {
+                      return telefone.replace(/(\d{2})(\d{5})(\d{4})/, "$1 $2-$3");
+
+                    } else if (telefone.length > 0 && telefone.length !== 11) {
+                      return null;
+                    }
+                    else if (telefone.length === 0) {
+                      return telefone;
+                    }
+
+                  }
+
+
+                  const telefoneFormatado = formataTelefone(telefone)
+
+                  if (nome === "") {
+                    nome = null;
+                  }
+
+                  if (cpf === "") {
+                    cpf = null;
+                  }
+                  if (email === "") {
+                    email = null;
+                  }
+                  if (telefone === "") {
+                    telefone = null;
+                  }
+                  if (sexo === "") {
+                    sexo = null;
+                  }
+                  if (datanascimento === "") {
+                    datanascimento = null;
+                  }
+
+
+
+                  const alunoPut = {
+                    id,
+                    nome,
+                    cpf: cpfFormatado,
+                    email,
+                    telefone: telefoneFormatado,
+                    sexo,
+                    datanascimento,
+                  };
+
+
+
+                  const URL = 'https://fitacademy-production.up.railway.app/academia';
+                  fetch(URL, {
+                    method: "PUT",
+                    headers: {
+                      "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(alunoPut)
+                  })
+                    .then(async response => {
+                      if (!response.ok) {
+                        const errorText = await response.text(); // Pega o erro real do backend
+                        throw new Error("Erro ao atualizar os dados do aluno!\n\n" + errorText);
+                      }
+                      return response.json();
+                    })
+                    .then(valor => {
+                      alert("Aluno atualizado com sucesso! ID: " + valor.id);
+
+                    })
+                    .catch(erro => {
+                      console.error("Erro na atualização:", erro);
+                      alert("Erro na atualização: " + erro.message);
+                    })
+                    .finally(() => {
+                      salveAluno.innerText = "Salvo"
+                      buscaButton.click();
+                    })
+
+
+                },);
+
+                const cancelaAluno = trr.querySelector(".cancelaAluno")
+                cancelaAluno.addEventListener("click", (click) => {
+                  click.preventDefault();
+
+                  trr.remove()
+                  editar.disabled = false;
+                })
+              },)
+            })
+          });
+
+        buscaButton.innerText = "Buscar";
+      })
         .catch((error) => {
           console.error(error);
           buscaButton.innerText = "Buscar";
         });
     }, 300);
-  //});
-</script>
+    //});
+  </script>
 
 </body>
+
 </html>

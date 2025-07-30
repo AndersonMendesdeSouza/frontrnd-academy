@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciamento de Alunos</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <div class="container-projeto">
+ <header class="hed">
+      <nav>
+<div class="logo">
+  <h1>FIT</h1>
+  <h3>Academy</h3>
+</div>
+<div class="search-box">
+  <input type="text" placeholder="Buscar aluno..." />
+  <i class="fas fa-search"></i>
+</div>
+     <div>
+        <ul>
+          <li><a href="buscaraluno.html">Cadastrar</a></li>
+          <li><a href="atualizaraluno.html">Buscar</a></li>
+          <li><a href="deletaraluno.html">Atualizar</a></li>
+        </ul>
+        </div>
+                <div class="voltar">
+<a href="academy.html"><button id="btn-voltar">VOLTAR</button></a>
+
+        </div>
+      </nav>
+    </header >
+ 
+    <div class="text-cadastro">
+      <h2>FAÇA O CADASTRO DOS SEUS ALUNOS.</h2>
+    </div>
+
+
+    <div class="container" id="cadastrados">
+
+      <!-- Deletar -->
+      <div class="form-section">
+        <h2>Deletar</h2>
+        <form id="formDeletar">
+          <label for="idDeletar">ID do Aluno:</label>
+          <input type="number" id="idDeletar" required>
+
+          <button type="submit">Deletar</button>
+        </form>
+      </div>
+
+    </div>
+    </main>
+  </div>
+
+   <script>  
+// DELETAR ALUNOS
+ const formDeletar = document.getElementById("formDeletar");
+ formDeletar.addEventListener("submit", (click)=>{
+click.preventDefault();
+
+const idDelet = document.getElementById("idDeletar").value
+
+const URLdelet = "https://fitacademy-production.up.railway.app/academia/" + idDelet;
+
+ fetch(URLdelet, {
+  method: "DELETE"
+})
+  .then(async response => {
+    if (!response.ok) {
+      const errorText = await response.text(); // Pega o erro real do backend
+      throw new Error("Erro ao atualizar os dados do aluno!\n\n" + errorText);
+    
+    }
+  })
+  .then(() => {
+    alert("Aluno Deletado com sucesso! ID: " + idDelet);
+    formDeletar.reset();
+  })
+  .catch(erro => {
+    console.error("Erro ao Excluir aluno:", erro);
+    alert("Erro ao excluir: " + erro.message);
+  });
+ })
+
+
+
+</script>
+</body>
+
+</html>
